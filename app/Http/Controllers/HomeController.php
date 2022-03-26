@@ -16,4 +16,7 @@ class HomeController extends Controller
         return view('home.test',$data);
 
     }
+    public function aboutus(){
+        return view(view:'home.about');
+    }
 }
