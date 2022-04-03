@@ -1,39 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="zxx">
+
 <head>
-    <title>@yield('title')</title>
     <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <meta name="description" content="F@yield('description')">
+    <meta name="keywords" content="@yield('keywords')">
+    <meta name="author" content="Abdulkadir Binan">
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{{ asset ('assets')}}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset ('assets')}}/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{ asset ('assets')}}/css/magnific-popup.css">
+    <link rel="stylesheet" href="{{ asset ('assets')}}/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset ('assets')}}/css/themify-icons.css">
+    <link rel="stylesheet" href="{{ asset ('assets')}}/css/nice-select.css">
+    <link rel="stylesheet" href="{{ asset ('assets')}}/css/flaticon.css">
+    <link rel="stylesheet" href="{{ asset ('assets')}}/css/gijgo.css">
+    <link rel="stylesheet" href="{{ asset ('assets')}}/css/animate.css">
+    <link rel="stylesheet" href="{{ asset ('assets')}}/css/slicknav.css">
+    <link rel="stylesheet" href="{{ asset ('assets')}}/css/style.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
     @yield('css')
-    @yield('js')
+    @yield('headerjs')
 </head>
+
 <body>
+@include('home._header')
 
-<div class="jumbotron text-center">
-    <h1>header</h1>
-    <p>Resize this responsive page to see the effect!</p>
-    <a href="/" >home</a>
-    <a href="/aboutus" >about us</a>
-    @yield('header')
-</div>
+ @section('content')
+     içeriklerimiz
+@show
 
-<div class="container">
-    <div class="row">
-        @yield('sidebar')
-        @yield('content')
-    </div>
 
-</div>
+@include('home._footer')
+@yield('footerjs')
 
-<div class="jumbotron text-center">
-    <h1>Footer</h1>
-    <p>Rsayfa altı!</p>
 
-    @yield('footer')
-</div>
 </body>
 </html>
+
