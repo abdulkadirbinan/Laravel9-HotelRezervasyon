@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view ('home.index',['name' => 'apoo']);
+    return view ('home.index');
 });
 Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -28,6 +28,10 @@ require __DIR__.'/auth.php';
 
 //Admin
 Route::get('/admin',[\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('adminhome');
+
+Route::get('/admin/login',[HomeController::class, 'login'])->name('admin_login');
+Route::post('/admin/logincheck',[HomeController::class, 'logincheck'])->name('admin_logincheck');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
