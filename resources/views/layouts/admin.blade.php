@@ -30,11 +30,28 @@
 <div class="container-scroller">
 
 
+    @include('admin._sidebar')
+    @show()
 
-@include('admin._sidebar')
-@include('admin._header')
-@yield('content')
-@include('admin._footer')
-@yield('footer')
+      <div class="container-fluid page-body-wrapper">
+
+
+        @include('admin._navbar')
+        @show()
+
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+            @section('content')
+
+
+
+        @include('admin._footer')
+        @show()
+
+
+
+
+</div>
 </body>
 </html>
