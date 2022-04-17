@@ -33,9 +33,9 @@
                             <td>{{$rs->description}}</td>
                             <td>{{$rs->image}}</td>
                             <td>{{$rs->status}}</td>
-                            <td><a href="/admin/category/edit{{$rs->id}}" <button class="btn btn-info">Edit</a></button></td>
-                            <td><a href="/admin/category/delete{{$rs->id}}"<button class="btn btn-danger">Delete</a></button></td>
-                            <td><a href="/admin/category/show{{$rs->id}}"<button class="btn btn-primary">Show</a></button></td>
+                            <td><a href="/admin/category/edit/{{$rs->id}}" <button class="btn btn-info">Edit</a></button></td>
+                            <td><a href="/admin/category/delete/{{$rs->id}}"<button class="btn btn-danger">Delete</a></button></td>
+                            <td><a href="/admin/category/show/{{$rs->id}}"<button class="btn btn-primary">Show</a></button></td>
 
                           </tr>
                         @endforeach

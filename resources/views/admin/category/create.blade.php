@@ -126,7 +126,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary me-2">Submit</button>
-                <button class="btn btn-dark">Cancel</button>
+                <a href="/admin">Cancel</a <button class="btn btn-dark"></button>
             </form>
         </div>
 @endsection
