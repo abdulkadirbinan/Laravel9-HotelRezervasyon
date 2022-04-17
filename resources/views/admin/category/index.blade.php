@@ -5,15 +5,19 @@
 
         <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic Table</h4>
 
+                      <div class="col-sm-6">
+                          <h4 class="card-title">Category List</h4>
+                      </div>
                     <div class="table-responsive">
                       <table class="table">
                         <thead>
                           <tr>
-                            <th>Profile</th>
-                            <th>VatNo.</th>
-                            <th>Created</th>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Keywords</th>
+                            <th>Description</th>
+                            <th>Image</th>
                             <th>Status</th>
                             <th>edit</th>
                             <th>delete</th>
@@ -21,70 +25,20 @@
                           </tr>
                         </thead>
                         <tbody>
+                        @foreach($data as $rs)
                           <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
+                            <td>{{$rs->id}}</td>
+                            <td>{{$rs->title}}</td>
+                            <td>{{$rs->keywords}}</td>
+                            <td>{{$rs->description}}</td>
+                            <td>{{$rs->image}}</td>
+                            <td>{{$rs->status}}</td>
+                            <td><a href="/admin/category/edit{{$rs->id}}" <button class="btn btn-info">Edit</a></button></td>
+                            <td><a href="/admin/category/delete{{$rs->id}}"<button class="btn btn-danger">Delete</a></button></td>
+                            <td><a href="/admin/category/show{{$rs->id}}"<button class="btn btn-primary">Show</a></button></td>
 
+                          </tr>
+                        @endforeach
                         </tbody>
                       </table>
                     </div>
