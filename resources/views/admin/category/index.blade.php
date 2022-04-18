@@ -5,8 +5,8 @@
 
         <div class="card">
                   <div class="card-body">
-
                       <div class="col-sm-6">
+                          <a href="/admin/category/create"<button class="btn btn-primary">Add</a></button>
                           <h4 class="card-title">Category List</h4>
                       </div>
                     <div class="table-responsive">

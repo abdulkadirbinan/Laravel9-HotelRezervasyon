@@ -31,23 +31,24 @@
 
 
     @include('admin._sidebar')
-    @show()
+    
 
       <div class="container-fluid page-body-wrapper">
 
 
         @include('admin._navbar')
-        @show()
+        
 
         <div class="main-panel">
           <div class="content-wrapper">
 
             @section('content')
+            @show
 
 
 
-        @include('admin._footer')
-        @show()
+            @include('admin._footer')
+        
 
 
 
