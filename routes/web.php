@@ -27,20 +27,22 @@ Route::get('/hello', function () {
 });
 require __DIR__.'/auth.php';
 
-//Admin
-Route::get('/admin',[AdminHomeController::class, 'index'])->name('adminhome');
+//******************** ADMIN PANEL ROUTES ********************************************************
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/',[AdminHomeController::class, 'index'])->name('index');
 
 
-//admin category routes
-Route::get('/admin/category',[AdminCategoryController::class, 'index'])->name('admin_category');
-Route::get('/admin/category/create',[AdminCategoryController::class, 'create'])->name('admin_category_create');
-Route::post('/admin/category/store',[AdminCategoryController::class, 'store'])->name('admin_category_store');
-Route::get('/admin/category/edit/{id}',[AdminCategoryController::class, 'edit'])->name('admin_category_edit');
-Route::post('/admin/category/update/{id}',[AdminCategoryController::class, 'update'])->name('admin_category_update');
-Route::get('/admin/category/show/{id}',[AdminCategoryController::class, 'show'])->name('admin_category_show');
+//********************ADMIN CATEGORY ROUTES ******************************************************
+Route::prefix('category')->name('category.')->controller(AdminCategoryController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create','create')->name('create');
+    Route::post('/store','store')->name('store');
+    Route::get('/edit/{id}','edit')->name('edit');
+    Route::post('/update/{id}','update')->name('update');
+    Route::get('/show/{id}','show')->name('show');
 
-
-
+});
+});
 
 
 Route::get('/admin/login',[HomeController::class, 'login'])->name('admin_login');

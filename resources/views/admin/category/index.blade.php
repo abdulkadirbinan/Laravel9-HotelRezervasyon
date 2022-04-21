@@ -6,7 +6,7 @@
         <div class="card">
                   <div class="card-body">
                       <div class="col-sm-6">
-                          <a href="/admin/category/create"<button class="btn btn-primary">Add</a></button>
+                          <a href="{{route('admin.category.create')}}"<button class="btn btn-primary">Add</a></button>
                           <h4 class="card-title">Category List</h4>
                       </div>
                     <div class="table-responsive">
@@ -33,9 +33,9 @@
                             <td>{{$rs->description}}</td>
                             <td>{{$rs->image}}</td>
                             <td>{{$rs->status}}</td>
-                            <td><a href="/admin/category/edit/{{$rs->id}}" <button class="btn btn-info">Edit</a></button></td>
-                            <td><a href="/admin/category/delete/{{$rs->id}}"<button class="btn btn-danger">Delete</a></button></td>
-                            <td><a href="/admin/category/show/{{$rs->id}}"<button class="btn btn-primary">Show</a></button></td>
+                            <td><a href="{{route ('admin.category.edit',['id'=>$rs->id])}}" <button class="btn btn-info">Edit</a></button></td>
+                            <td><a href=""<button class="btn btn-danger">Delete</a></button></td>
+                            <td><a href="{{route ('admin.category.show',['id'=>$rs->id])}}"<button class="btn btn-primary">Show</a></button></td>
 
                           </tr>
                         @endforeach

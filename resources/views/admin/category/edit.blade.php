@@ -6,7 +6,7 @@
         <div class="card-body">
             <h4 class="card-title">Basic form elements</h4>
             <p class="card-description"> Basic form elements </p>
-            <form class="forms-sample" action="/admin/category/update/{{$data->id}}" method="post">
+            <form class="forms-sample" action="{{route ('admin.category.update',['id'=>$data->id])}}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputName1">Title</label>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary me-2">Update</button>
-                <a href="/admin">Cancel</a <button class="btn btn-dark"></button>
+                <a href="{{route ('admin.index')}}">Cancel</a <button class="btn btn-dark"></button>
             </form>
         </div>
 @endsection
