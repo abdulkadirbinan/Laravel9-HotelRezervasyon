@@ -31,13 +31,13 @@
 
 
     @include('admin._sidebar')
-    
+
 
       <div class="container-fluid page-body-wrapper">
 
 
         @include('admin._navbar')
-        
+
 
         <div class="main-panel">
           <div class="content-wrapper">
@@ -48,11 +48,6 @@
 
 
             @include('admin._footer')
-        
 
-
-
-
-</div>
 </body>
 </html>
