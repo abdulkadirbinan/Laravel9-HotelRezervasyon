@@ -9,6 +9,17 @@
             <form class="forms-sample" action="{{route ('admin.category.update',['id'=>$data->id])}}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
+                    <label >Parent Category</label>
+                    <select class="form-control" name="parent_id" >
+                        <option value="0" selected="selected">Main Category</option>
+                        @foreach($datalist as $rs)
+                            <option value="{{$rs->id}}" @if ($rs->id == $data->parent_id) selected="selected" @endif>
+                                {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="exampleInputName1">Title</label>
                     <input type="text" class="form-control" name="title" value="{{$data->title}}">
                 </div>
@@ -36,7 +47,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary me-2">Update</button>
-                <a href="{{route ('admin.index')}}">Cancel</a <button class="btn btn-dark"></button>
+                <a href="{{route ('admin.category.index')}}">Cancel</a <button class="btn btn-dark"></button>
             </form>
         </div>
 @endsection
