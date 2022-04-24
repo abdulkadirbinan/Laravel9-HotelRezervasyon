@@ -12,30 +12,41 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th> Id </th>
-                                <th> Title </th>
-                                <th> Keywords </th>
-                                <th> Image </th>
-                                <th> Status </th>
-                                <th> Create Date </th>
-                                <th> Updated Date </th>
+                                <th style="width: 200px"> Id </th>
+                                <td>{{$data->id}}</td>
                             </tr>
-                            </thead>
-                            <tbody>
                             <tr>
-                                <td>
-                                    {{$data->id}}
-                                </td>
+                                <th> Title </th>
                                 <td> {{$data->title}} </td>
-                                <td>
-                                    {{$data->keywords}}
+                            </tr>
+                            <tr>
+                                <th> Keywords </th>
+                                <td> {{$data->keywords}} </td>
+                            </tr>
+                            <tr>
+                                <th> Description </th>
+                                <td> {{$data->description}} </td>
+                            </tr>
+                            <tr>
+                                <th> Image </th>
+                                <td>     @if ($data->image)
+                                        <img src="{{Storage::url($data->image)}}" style="height:40px">
+                                    @endif
                                 </td>
-                                <td>  </td>
+                            </tr>
+                            <tr>
+                                <th> Status </th>
                                 <td> {{$data->status}} </td>
+                            </tr>
+                            <tr>
+                                <th> Create Date </th>
                                 <td> {{$data->created_at}} </td>
+                            </tr>
+                            <tr>
+                                <th> Updated Date </th>
                                 <td> {{$data->updated_at}} </td>
                             </tr>
-                            </tbody>
+                            </thead>
                         </table>
                     </div>
                 </div>

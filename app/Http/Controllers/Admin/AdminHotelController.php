@@ -4,27 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Hotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class CategoryController extends Controller
+class AdminHotelController extends Controller
 {
-    protected $appends = [
-        'getParentsTree'
-    ];
-
-    public static function getParentsTree($category,$title)
-    {
-
-        if ($category->parent_id==0)
-        {
-           return $title;
-        }
-        $parent = Category::find($category->parent_id);
-        $title = $parent->title . '>' . $title;
-        return CategoryController::getParentsTree($parent,$title);
-
-    }
 
     /**
      * Display a listing of the resource.
@@ -33,8 +18,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data= Category::all();
-     return  view('admin.category.index',[
+        $data= Hotel::all();
+     return  view('admin.hotel.index',[
 
          'data' => $data
      ]);
@@ -50,7 +35,7 @@ class CategoryController extends Controller
     {
         //
         $data= Category::all();
-        return  view('admin.category.create',[
+        return  view('admin.hotel.create',[
 
             'data' => $data
         ]);
@@ -65,30 +50,40 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-       $data= new Category();
-       $data->parent_id =$request->parent_id;
-       $data->title =$request->title;
-       $data->keywords =$request->keywords;
-       $data->description =$request->description;
-       $data->status =$request->status;
+       $data= new Hotel();
+        $data->category_id =$request->category_id;
+        $data->user_id =0; //$request->user_id;
+        $data->title =$request->title;
+        $data->keywords =$request->keywords;
+        $data->description =$request->description;
+        $data->detail =$request->detail;
+        $data->star =$request->star;
+        $data->address =$request->address;
+        $data->phone =$request->phone;
+        $data->fax =$request->fax;
+        $data->email =$request->email;
+        $data->city =$request->city;
+        $data->country =$request->country;
+        $data->location =$request->location;
+        $data->status =$request->status;
         if ($request->file('image')){
             $data->image= $request->file('image')->store('public/images');
         }
        $data->save();
-       return redirect('admin/category');
+       return redirect('admin/hotel');
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category,$id)
+    public function show(Hotel $hotel,$id)
     {
-        $data= Category::find($id);
-        return  view('admin.category.show',[
+        $data= Hotel::find($id);
+        return  view('admin.hotel.show',[
 
             'data' => $data
         ]);
@@ -97,14 +92,14 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category,$id)
+    public function edit(Hotel $hotel,$id)
     {
-        $data= Category::find($id);
+        $data= Hotel::find($id);
         $datalist= Category::all();
-        return  view('admin.category.edit',[
+        return  view('admin.hotel.edit',[
             'data' => $data,
             'datalist' => $datalist
         ]);
@@ -114,37 +109,48 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category,$id)
+    public function update(Request $request, Hotel $hotel,$id)
     {
-        $data= Category::find($id);
-        $data->parent_id =$request->parent_id;
+        $data= Hotel::find($id);
+        $data->category_id =$request->category_id;
+        $data->user_id =0; //$request->user_id;
         $data->title =$request->title;
         $data->keywords =$request->keywords;
         $data->description =$request->description;
+        $data->detail =$request->detail;
+        $data->star =$request->star;
+        $data->address =$request->address;
+        $data->phone =$request->phone;
+        $data->fax =$request->fax;
+        $data->email =$request->email;
+        $data->city =$request->city;
+        $data->country =$request->country;
+        $data->location =$request->location;
         $data->status =$request->status;
         if ($request->file('image')){
             $data->image= $request->file('image')->store('public/images');
         }
         $data->save();
-        return redirect('admin/category');
+        return redirect('admin/hotel');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category,$id)
+    public function destroy(Hotel $hotel,$id)
     {
-        $data= Category::find($id);
+        $data= Hotel::find($id);
         if ($data->image && Storage::disk('public')->exists($data->image)){
             Storage::delete($data->image);
         }
         $data->delete();
-        return redirect('admin/category');
+        return redirect('admin/hotel');
     }
 }

@@ -90,7 +90,7 @@
             </li>
 
             <li class="nav-item menu-items">
-                <a class="nav-link" href="/admin/Hotel">
+                <a class="nav-link" href="/admin/hotel">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
