@@ -24,8 +24,8 @@ return new class extends Migration
             $table->text('detail')->nullable();
             $table->float('star')->nullable();
             $table->string('address')->nullable();
-            $table->integer('phone')->nullable();
-            $table->integer('fax')->nullable();
+            $table->bigInteger('phone')->nullable();
+            $table->bigInteger('fax')->nullable();
             $table->string('email')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();

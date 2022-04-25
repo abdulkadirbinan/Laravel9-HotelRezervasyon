@@ -113,7 +113,7 @@
                     <span class="menu-title">FAQ</span>
                 </a>
             </li>
-            <li class="nav-item menu-items">
+            <li class="nav-item menu-items ">
                 <a class="nav-link" href="/admin/message">
               <span class="menu-icon">
                 <i class="mdi mdi-email"></i>

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Hotel extends Model
 {
     use HasFactory;
+
+    #many to one
+    public function category(){
+
+        return $this->belongsTo(Category::class);
+    }
 }
