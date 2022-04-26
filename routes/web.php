@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminHotelController;
+use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
@@ -53,6 +54,14 @@ Route::prefix('category')->name('category.')->controller(AdminCategoryController
         Route::post('/update/{id}','update')->name('update');
         Route::get('/destroy/{id}','destroy')->name('destroy');
         Route::get('/show/{id}','show')->name('show');
+
+    });
+
+    //********************ADMIN HOTEL IMAGE GALLERY ROUTES ******************************************************
+    Route::prefix('image')->name('image.')->controller(ImageController::class)->group(function () {
+        Route::get('/{hid}', 'index')->name('index');
+        Route::post('/store/{hid}','store')->name('store');
+        Route::get('/destroy/{hid}/{id}','destroy')->name('destroy');
 
     });
 });
