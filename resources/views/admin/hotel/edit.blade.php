@@ -1,6 +1,11 @@
  @extends('layouts.admin')
 
 @section('title', 'Edit Hotel :'.$data->title)
+ @section('css')
+     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+     @endsection
+
 @section('content')
         <h1>Edit Hotel {{$data->title}}</h1>
         <div class="card-body">
@@ -64,7 +69,9 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail2">Detail</label>
-                    <textarea class="form-control" name="detail">{{$data->detail}}</textarea>
+                    <textarea class="form-control" id='detail' name="detail">
+                        {{$data->detail}}
+                    </textarea>
                 </div>
 
                 <div class="form-group">
@@ -83,8 +90,16 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary me-2">Update</button>
-                <a href="{{route ('admin.hotel.index')}}">Cancel</a <button class="btn btn-dark"></button>
+                <a href="{{route ('admin.hotel.index')}}">Cancel</a> <button class="btn btn-dark"></button>
             </form>
         </div>
 @endsection
+@section('foot')
+     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+     <script>
+         $(function() {
+             $('#detail').summernote()
+         })
+     </script>
+ @endsection
 

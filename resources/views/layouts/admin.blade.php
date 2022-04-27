@@ -45,9 +45,8 @@
             @section('content')
             @show
 
-
-
             @include('admin._footer')
+            @yield('foot')
 
 </body>
 </html>
