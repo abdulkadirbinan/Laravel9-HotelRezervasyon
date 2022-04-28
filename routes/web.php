@@ -17,9 +17,9 @@ use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view ('home.index');
-});
+Route::get('/', [HomeController::class, 'index'])->name('index');
+
+
 Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/test/{id}/{name}', [HomeController::class, 'test'])->whereNumber('id')->whereAlpha( 'name')->name('test');

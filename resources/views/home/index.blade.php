@@ -7,9 +7,33 @@
 @endsection
 @section('keyword','otel konaklama ')
 
-
 @section('content')
-    @include('home._slider')
+
+
+    <!-- slider_area_start -->
+
+    <div class="slider_area">
+        <div class="slider_active owl-carousel">
+            @foreach($sliderdata as $rs)
+                <div class="single_slider d-flex align-items-center justify-content-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <img src="{{Storage::url($rs->image)}}" style="width: 1990px; height: 850px">
+                                <div class="slider_text text-center">
+                                    <h3>Montana Resort</h3>
+                                    <p>Unlock to enjoy the view of Martine</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+    <!-- slider_area_end -->
+
     <!-- about_area_start -->
     <div class="about_area">
         <div class="container">
