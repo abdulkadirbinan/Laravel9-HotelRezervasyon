@@ -21,7 +21,7 @@
                             <div class="col-xl-12">
                                 <img src="{{Storage::url($rs->image)}}" style="width: 1990px; height: 850px">
                                 <div class="slider_text text-center">
-                                    <h3>Montana Resort</h3>
+                                    <h3>Montana Resorttttttt</h3>
                                     <p>Unlock to enjoy the view of Martine</p>
                                 </div>
                             </div>
@@ -78,51 +78,24 @@
                 </div>
             </div>
             <div class="row">
+                @foreach($hotellist1 as $rs)
                 <div class="col-xl-4 col-md-4">
                     <div class="single_offers">
-                        <div class="about_thumb">
-                            <img src="{{ asset ('assets')}}/img/offers/1.png" alt="">
+                        <div class="about_thumb" >
+                            <img src="{{Storage::url($rs->image)}}" style="height: 350px; width: 362px;" alt="">
                         </div>
+                        <h2>{{$rs->title}}</h2>
                         <h3>Up to 35% savings on Club <br>
                             rooms and Suites</h3>
                         <ul>
-                            <li>Luxaries condition</li>
+                            <li>{{$rs->star}} star</li>
                             <li>3 Adults & 2 Children size</li>
-                            <li>Sea view side</li>
+                            <li>{{$rs->location}},{{$rs->city}}</li>
                         </ul>
                         <a href="#" class="book_now">book now</a>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_offers">
-                        <div class="about_thumb">
-                            <img src="{{ asset ('assets')}}/img/offers/2.png" alt="">
-                        </div>
-                        <h3>Up to 35% savings on Club <br>
-                            rooms and Suites</h3>
-                        <ul>
-                            <li>Luxaries condition</li>
-                            <li>3 Adults & 2 Children size</li>
-                            <li>Sea view side</li>
-                        </ul>
-                        <a href="#" class="book_now">book now</a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_offers">
-                        <div class="about_thumb">
-                            <img src="{{ asset ('assets')}}/img/offers/3.png" alt="">
-                        </div>
-                        <h3>Up to 35% savings on Club <br>
-                            rooms and Suites</h3>
-                        <ul>
-                            <li>Luxaries condition</li>
-                            <li>3 Adults & 2 Children size</li>
-                            <li>Sea view side</li>
-                        </ul>
-                        <a href="#" class="book_now">book now</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -134,7 +107,7 @@
             <span>Montana Sea View</span>
             <h3>Relax and Enjoy your <br>
                 Vacation </h3>
-            <a href="https://www.youtube.com/watch?v=vLnPwxZdW4Y" class="video_btn popup-video">
+            <a href="https://www.youtube.com/watch?v=USIwAgtoDgo" class="video_btn popup-video">
                 <i class="fa fa-play"></i>
             </a>
         </div>
