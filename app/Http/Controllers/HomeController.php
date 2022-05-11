@@ -18,6 +18,14 @@ class HomeController extends Controller
             'hotellist1'=>$hotellist1
         ]);
     }
+    public function hotel($id)
+    {
+
+        $data = Hotel::find($id);
+        return view('home.hotel',[
+            'data'=>$data
+        ]);
+    }
 
 
     public function aboutus()

@@ -65,7 +65,7 @@ Route::prefix('category')->name('category.')->controller(AdminCategoryController
 
     });
 });
-
+Route::get('/hotel/{id}',[HomeController::class,'hotel'])->name('hotel');
 
 Route::get('/admin/login',[HomeController::class, 'login'])->name('admin_login');
 Route::post('/admin/logincheck',[HomeController::class, 'logincheck'])->name('admin_logincheck');
