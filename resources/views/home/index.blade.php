@@ -15,13 +15,12 @@
     <div class="slider_area">
         <div class="slider_active owl-carousel">
             @foreach($sliderdata as $rs)
-                <div class="single_slider d-flex align-items-center justify-content-center">
+                <div class="single_slider d-flex align-items-center justify-content-center" style="background-image: url('{{Storage::url($rs->image)}}')">
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-12">
-                                <img src="{{Storage::url($rs->image)}}" style="width: 1990px; height: 850px">
                                 <div class="slider_text text-center">
-                                    <h3>Montana Resorttttttt</h3>
+                                    <h3>Montana Resort</h3>
                                     <p>Unlock to enjoy the view of Martine</p>
                                 </div>
                             </div>
@@ -92,7 +91,7 @@
                             <li>3 Adults & 2 Children size</li>
                             <li>{{$rs->location}},{{$rs->city}}</li>
                         </ul>
-                        <a href="#" class="book_now">book now</a>
+                        <a href="{{route('hotel',['id'=>$rs->id])}}" class="book_now">book now</a>
                     </div>
                 </div>
                 @endforeach

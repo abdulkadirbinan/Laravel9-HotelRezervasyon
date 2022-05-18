@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -20,10 +21,12 @@ class HomeController extends Controller
     }
     public function hotel($id)
     {
-
+        $images = DB::table('images')->where('hotel_id',$id)->get();
         $data = Hotel::find($id);
         return view('home.hotel',[
-            'data'=>$data
+            'data'=>$data,
+            'images'=>$images
+
         ]);
     }
 
