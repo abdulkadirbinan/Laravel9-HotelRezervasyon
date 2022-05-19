@@ -38,10 +38,9 @@ class HomeController extends Controller
 
     public function categoryhotels($id)
     {
-        echo "deneme";
-        exit();
-        $images = DB::table('hotels')->where('hotel_id',$id)->get();
-        $data = Hotel::find($id);
+        $category = Category::find($id);
+        //$hotels = DB::table('hotels')->where('category_id',$id)->get(); bakılacak
+        $hotels =Hotel::limit(6)->get();
         return view('home.categoryhotels',[
             'category'=>$category,
             'hotels'=>$hotels

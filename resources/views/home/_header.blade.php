@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-xl-2 col-lg-2">
                         <div class="logo-img">
-                            <a href="index.html">
+                            <a href="{{route('home')}}">
                                 <img src="{{ asset ('assets')}}/img/logo.png" alt="">
                             </a>
                         </div>
