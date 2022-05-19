@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,7 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    //
+    public static function maincategorylist()
+    {
+
+        return Category::where('parent_id','=',0)->with('children')->get();
+    }
+
     public function index()
     {
         $sliderdata = Hotel::limit(4)->get();
@@ -26,6 +32,19 @@ class HomeController extends Controller
         return view('home.hotel',[
             'data'=>$data,
             'images'=>$images
+
+        ]);
+    }
+
+    public function categoryhotels($id)
+    {
+        echo "deneme";
+        exit();
+        $images = DB::table('hotels')->where('hotel_id',$id)->get();
+        $data = Hotel::find($id);
+        return view('home.categoryhotels',[
+            'category'=>$category,
+            'hotels'=>$hotels
 
         ]);
     }
