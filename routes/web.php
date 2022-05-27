@@ -32,6 +32,10 @@ require __DIR__.'/auth.php';
 //******************** ADMIN PANEL ROUTES ********************************************************
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/',[AdminHomeController::class, 'index'])->name('index');
+//************************* GENERAL ROUTES ********************************************************
+    Route::get('/setting',[AdminHomeController::class, 'setting'])->name('setting');
+    Route::post('/setting',[AdminHomeController::class, 'settingUpdate'])->name('setting.update');
+
 
 
 //********************ADMIN CATEGORY ROUTES ******************************************************

@@ -8,9 +8,16 @@
 
 @section('content')
         <h1>Edit Hotel {{$data->title}}</h1>
+        <div class="page-header">
+            <h3 class="page-title"> Chart-js </h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">df</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Chart-js</li>
+                </ol>
+            </nav>
+        </div>
         <div class="card-body">
-            <h4 class="card-title">Basic form elements</h4>
-            <p class="card-description"> Basic form elements </p>
             <form class="forms-sample" action="{{route ('admin.hotel.update',['id'=>$data->id])}}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
