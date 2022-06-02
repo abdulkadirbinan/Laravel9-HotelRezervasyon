@@ -5,12 +5,19 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 @endsection
 @section('content')
+    <div class="page-header">
+        <h3 class="page-title"> Chart-js </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Charts</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Chart-js</li>
+            </ol>
+        </nav>
+    </div>
         <h1>Add Category</h1>
  <div class="col-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Basic form elements</h4>
-            <p class="card-description"> Basic form elements </p>
             <form class="forms-sample" action="{{route ('admin.hotel.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">

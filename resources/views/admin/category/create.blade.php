@@ -2,99 +2,19 @@
 
 @section('title', 'Add Category')
 @section('content')
+    <div class="page-header">
+        <h3 class="page-title"> Chart-js </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Charts</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Chart-js</li>
+            </ol>
+        </nav>
+    </div>
         <h1>Add Category</h1>
-{{--        <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Basic Table</h4>
-
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>Profile</th>
-                            <th>VatNo.</th>
-                            <th>Created</th>
-                            <th>Status</th>
-                            <th>edit</th>
-                            <th>delete</th>
-                            <th>show</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td>hello</td>
-                            <td><button class="btn btn-success">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
-                            <td><button class="btn btn-primary">show</button></td>
-                          </tr>
-
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>--}}
  <div class="col-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Basic form elements</h4>
-            <p class="card-description"> Basic form elements </p>
             <form class="forms-sample" action="{{route ('admin.category.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">

@@ -2,6 +2,15 @@
 
 @section('title', 'Hotel Image Gallery')
 @section('content')
+    <div class="page-header">
+        <h3 class="page-title"> Chart-js </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Charts</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Chart-js</li>
+            </ol>
+        </nav>
+    </div>
     <h3>{{$hotel->title}}</h3>
     <form class="forms-sample" action="{{route ('admin.image.store',['hid'=>$hotel->id])}}" method="post" enctype="multipart/form-data">
         @csrf

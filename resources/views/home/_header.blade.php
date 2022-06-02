@@ -11,11 +11,15 @@
                             <nav>
                                 <ul id="navigation">
                                     @foreach($mainCategories as $rs)
-                                    <li>{{ $rs->title }} <i class="ti-angle-down"></i>
+
                                             @if(count($rs->children))
+                                            <li> <a href="#">{{ $rs->title }} <i class="ti-angle-down"></i></a>
                                                 @include('home.categorytree',['children' => $rs->children])
+                                            </li>
+                                            @else
+                                            <li><a href="/menu/{{ $rs->id }}">{{ $rs->title }} </a></li>
                                             @endif
-                                    </li>
+
                                     @endforeach
                                 </ul>
                             </nav>
