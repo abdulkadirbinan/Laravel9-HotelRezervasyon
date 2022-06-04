@@ -97,7 +97,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary me-2">Update</button>
-                <a href="{{route ('admin.hotel.index')}}">Cancel</a> <button class="btn btn-dark"></button>
+                <a href="{{route ('admin.hotel.index')}}">Cancel</a <button class="btn btn-dark"></button>
             </form>
         </div>
 @endsection
