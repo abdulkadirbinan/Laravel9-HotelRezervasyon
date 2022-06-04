@@ -6,11 +6,11 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="F@yield('description')">
+    <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
     <meta name="author" content="Abdulkadir Binan">
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="@yield('icon')">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->

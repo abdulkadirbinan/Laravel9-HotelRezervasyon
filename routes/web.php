@@ -28,6 +28,11 @@ Route::get('/hello', function () {
     return 'Hello World';
 });
 require __DIR__.'/auth.php';
+//**************************HOME PAGE ROUTES*******************************
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/references', [HomeController::class, 'references'])->name('references');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+
 
 //******************** ADMIN PANEL ROUTES ********************************************************
 Route::prefix('admin')->name('admin.')->group(function () {

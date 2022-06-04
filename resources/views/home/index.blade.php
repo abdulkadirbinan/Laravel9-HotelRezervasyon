@@ -1,14 +1,11 @@
 @extends('layouts.home')
 
-@section('title', 'Otel Arama')
-@section('description')
-    türkiye nin en iyi otel bulma sitesi
-
-@endsection
-@section('keyword','otel konaklama ')
+@section('title', $setting->title)
+@section('description',$setting->description)
+@section('keyword',$setting->keyword)
+@section('icon',Storage:: url($setting->icon))
 
 @section('content')
-
 
     <!-- slider_area_start -->
 

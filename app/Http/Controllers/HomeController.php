@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Hotel;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -20,9 +21,34 @@ class HomeController extends Controller
     {
         $sliderdata = Hotel::limit(4)->get();
         $hotellist1 = Hotel::limit(6)->get();
+        $setting = Setting::first();
         return view('home.index',[
+            'setting'=>$setting,
             'sliderdata'=>$sliderdata,
             'hotellist1'=>$hotellist1
+        ]);
+    }
+    public function about()
+    {
+        $setting = Setting::first();
+        return view('home.about', [
+            'setting' => $setting,
+        ]);
+    }
+
+    public function references()
+    {
+        $setting = Setting::first();
+        return view('home.references', [
+            'setting' => $setting,
+        ]);
+    }
+
+    public function contact()
+    {
+        $setting = Setting::first();
+        return view('home.contact', [
+            'setting' => $setting,
         ]);
     }
     public function hotel($id)
@@ -48,11 +74,6 @@ class HomeController extends Controller
         ]);
     }
 
-
-    public function aboutus()
-    {
-        return view(view: 'home.about');
-    }
 
     public function login()
     {

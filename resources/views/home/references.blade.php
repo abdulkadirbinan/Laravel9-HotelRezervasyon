@@ -1,13 +1,13 @@
 @extends('layouts.home')
 
-@section('title', 'About Us', $setting->title)
+@section('title', 'References', $setting->title)
 @section('description',$setting->description)
 @section('keyword',$setting->keyword)
 @section('icon',Storage:: url($setting->icon))
 
 @section('content')
 <div class="bradcam_area breadcam_bg">
-    <h3>Hakkımızda</h3>
+    <h3>Referanslarımız</h3>
 </div>
 <!-- bradcam_area_end -->
 
@@ -15,9 +15,9 @@
 <div class="about_area">
     <div class="container">
         <div class="row">
-            <div class="col-xl-5 col-lg-5">
+            <div class="col-xl-12 col-lg-12">
                 <div class="about_info">
-                    <p>{!! $setting->aboutus !!}</p>
+                    <p>{!! $setting->references!!}</p>
                     <a href="#" class="line-button">Learn More</a>
                 </div>
             </div>
