@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminHotelController;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
@@ -32,6 +33,8 @@ require __DIR__.'/auth.php';
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/references', [HomeController::class, 'references'])->name('references');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::post('/storemessage', [HomeController::class, 'storemessage'])->name('storemessage');
+
 
 
 //******************** ADMIN PANEL ROUTES ********************************************************
@@ -40,7 +43,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
 //************************* GENERAL ROUTES ********************************************************
     Route::get('/setting',[AdminHomeController::class, 'setting'])->name('setting');
     Route::post('/setting',[AdminHomeController::class, 'settingUpdate'])->name('setting.update');
-
+//****************ADMİN MESSAGE ROUTES*****************************
+    Route::prefix('/message')->name('message.')->controller(MessageController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+    });
 
 
 //********************ADMIN CATEGORY ROUTES ******************************************************

@@ -24,14 +24,6 @@
                             <th>Id</th>
                             <th>Category</th>
                             <th>Title</th>
-{{--                            <th>Star</th>
-                            <th>Address</th>
-                            <th>Phone</th>
-                            <th>Fax</th>
-                            <th>Email</th>
-                            <th>City</th>
-                            <th>Country</th>
-                            <th>Location</th>--}}
                             <th>Image</th>
                             <th>Image Gallery</th>
                             <th>Status</th>
@@ -46,14 +38,6 @@
                             <td>{{$rs->id}}</td>
                             <td>{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->category->title) }}</td>
                             <td>{{$rs->title}}</td>
-{{--                            <td>{{$rs->star}}</td>
-                            <td>{{$rs->address}}</td>
-                            <td>{{$rs->phone}}</td>
-                            <td>{{$rs->fax}}</td>
-                            <td>{{$rs->email}}</td>
-                            <td>{{$rs->city}}</td>
-                            <td>{{$rs->country}}</td>
-                            <td>{{$rs->location}}</td>--}}
                               <td>
                                 @if ($rs->image)
                                 <img src="{{Storage::url($rs->image)}}" style="height:40px">
