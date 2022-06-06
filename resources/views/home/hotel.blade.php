@@ -185,7 +185,8 @@
                     </div>
                     <div class="comment-form">
                         <h4>Leave a Reply</h4>
-                        <form class="form-contact comment_form" action="#" id="commentForm">
+                        <form class="form-contact comment_form" action="{{'storecomment'}}" id="commentForm" method="GET">
+                            @csrf
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
