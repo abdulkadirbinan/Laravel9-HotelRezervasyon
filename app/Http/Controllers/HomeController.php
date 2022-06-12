@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+
 class HomeController extends Controller
 {
     public static function maincategorylist()
@@ -82,25 +83,27 @@ class HomeController extends Controller
     }
     public function storecomment(Request $request)
     {
-       // dd($request);
+       //dd($request);
         $data = new Comment();
         $data->user_id = Auth::id();
         $data->hotel_id = $request->input('hotel_id');
         $data->subject = $request->input('subject');
         $data->review = $request->input('review');
         $data->rate = $request->input('rate');
-        $data->ip = $request->ip();
+        $data->ip = request()->ip();
         $data->save();
         return redirect()->route('hotel',['id'=>$request->input('hotel_id')])->with('info', 'Your comment has been sent , Thank You.');
 
     }
     public function hotel($id)
     {
-        $images = DB::table('images')->where('hotel_id',$id)->get();
         $data = Hotel::find($id);
+        $images = DB::table('images')->where('hotel_id',$id)->get();
+        $reviews = Comment ::where('hotel_id',$id)->get();
         return view('home.hotel',[
             'data'=>$data,
-            'images'=>$images
+            'images'=>$images,
+            'reviews'=>$reviews
 
         ]);
     }

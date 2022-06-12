@@ -15,6 +15,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 posts-list">
+                    @include('home.messages')
                     <div class="single-post">
                         <div class="feature-img">
                             <img class="img-fluid" src="{{Storage::url($data->image)}}" alt="" style="height: 500px; width: 750px">
@@ -103,24 +104,28 @@
                         </div>
                     </div>
                     <div class="comments-area">
-                        <h4>05 Comments</h4>
+                        <h4>Comments</h4>
+                        @foreach($reviews as $rs)
                         <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="{{ asset ('assets')}}/img/comment/comment_1.png" alt="">
-                                    </div>
                                     <div class="desc">
                                         <p class="comment">
-                                            Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                            Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                                         {{$rs->review}}
                                         </p>
                                         <div class="d-flex justify-content-between">
                                             <div class="d-flex align-items-center">
                                                 <h5>
-                                                    <a href="#">Emilly Blunt</a>
+                                                    <a href="#">{{$rs->user->name}} </a>
                                                 </h5>
-                                                <p class="date">December 4, 2017 at 3:12 pm </p>
+                                                <div><br></div>
+
+                                                @if ($rs->rate==1)⭐ @endif
+                                                @if ($rs->rate==2)⭐⭐ @endif
+                                                @if ($rs->rate==3)⭐⭐⭐@endif
+                                                @if ($rs->rate==4)⭐⭐⭐⭐@endif
+                                                @if ($rs->rate==5)⭐⭐⭐⭐⭐@endif
+                                                <p class="date">{{$rs->created_at}} </p>
                                             </div>
                                             <div class="reply-btn">
                                                 <a href="#" class="btn-reply text-uppercase">reply</a>
@@ -130,89 +135,47 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="comment-list">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="{{ asset ('assets')}}/img/comment/comment_2.png" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <p class="comment">
-                                            Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                            Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                        </p>
-                                        <div class="d-flex justify-content-between">
-                                            <div class="d-flex align-items-center">
-                                                <h5>
-                                                    <a href="#">Emilly Blunt</a>
-                                                </h5>
-                                                <p class="date">December 4, 2017 at 3:12 pm </p>
-                                            </div>
-                                            <div class="reply-btn">
-                                                <a href="#" class="btn-reply text-uppercase">reply</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment-list">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="{{ asset ('assets')}}/img/comment/comment_3.png" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <p class="comment">
-                                            Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                            Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                        </p>
-                                        <div class="d-flex justify-content-between">
-                                            <div class="d-flex align-items-center">
-                                                <h5>
-                                                    <a href="#">Emilly Blunt</a>
-                                                </h5>
-                                                <p class="date">December 4, 2017 at 3:12 pm </p>
-                                            </div>
-                                            <div class="reply-btn">
-                                                <a href="#" class="btn-reply text-uppercase">reply</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                     <div class="comment-form">
                         <h4>Leave a Reply</h4>
-                        <form class="form-contact comment_form" action="{{'storecomment'}}" id="commentForm" method="GET">
+                        <form class="form-contact comment_form" action="{{route('storecomment')}}" method="post">
                             @csrf
                             <div class="row">
+                                <input class="input" type="hidden" name="hotel_id" value="{{$data->id}}">
                                 <div class="col-12">
                                     <div class="form-group">
-                              <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
-                                        placeholder="Write Comment"></textarea>
+                              <textarea class="form-control w-100" name="review" cols="30" rows="9"
+                                        placeholder="review"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control" name="name" id="name" type="text" placeholder="Name">
+                                        <input class="form-control" name="subject"  type="text" placeholder="subject">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control" name="email" id="email" type="email" placeholder="Email">
-                                    </div>
+                                    <input type="radio" name="rate" value="1">
+                                    <label>⭐️</label><br>
+                                    <input type="radio" name="rate" value="2">
+                                    <label>⭐️⭐️</label><br>
+                                    <input type="radio" name="rate" value="3">
+                                    <label>⭐️⭐️⭐️</label><br>
+                                    <input type="radio" name="rate" value="4">
+                                    <label>⭐️⭐️⭐️⭐️</label><br>
+                                    <input type="radio" name="rate" value="5">
+                                    <label>⭐️⭐️⭐️⭐️⭐️</label><br>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <input class="form-control" name="website" id="website" type="text" placeholder="Website">
-                                    </div>
+
+                            </div>
+                            @auth
+                                <div class="form-group">
+                                    <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Message</button>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Message</button>
-                            </div>
+                            @else
+                                <a href="/login" class="btn btn-normal pull-right"> For submit Your Review, Please Login</a>
+                            @endauth
                         </form>
                     </div>
                 </div>
