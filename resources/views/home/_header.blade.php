@@ -12,19 +12,20 @@
                                 <ul id="navigation">
                                     @foreach($mainCategories as $rs)
 
-                                            @if(count($rs->children))
+                                        @if(count($rs->children))
                                             <li> <a href="#">{{ $rs->title }} <i class="ti-angle-down"></i></a>
                                                 @include('home.categorytree',['children' => $rs->children])
                                             </li>
-                                            @else
+                                        @else
                                             <li><a href="/menu/{{ $rs->id }}">{{ $rs->title }} </a></li>
-                                            @endif
+                                        @endif
 
                                     @endforeach
-                                        <li><a href="{{route('faq')}}">FAQ</a></li>
-                                        <li><a href="{{route('contact')}}">Contact</a></li>
-                                        <li><a href="{{route('about')}}">About Us</a></li>
-                                        <li><a href="{{route('references')}}">References</a></li>
+                                    <li><a href="{{route('faq')}}">FAQ</a></li>
+                                    <li><a href="{{route('contact')}}">Contact</a></li>
+                                    <li><a href="{{route('about')}}">About Us</a></li>
+                                    <li><a href="{{route('references')}}">References</a></li>
+
                                 </ul>
                             </nav>
                         </div>
@@ -38,32 +39,33 @@
                     </div>
                     <div class="col-xl-5 col-lg-4 d-none d-lg-block">
                         <div class="book_room">
-                            <div class="socail_links">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-facebook-square"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    @guest()
-                                    @auth()
-                                        <li><a href="/loginuser">{{Auth::user()->name}}</a></li>
-                                        <a href="/logoutuser">Logout</a>
-                                    @endauth
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        @auth
+                                            <li><a href="#">{{Auth::user()->name}}  <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="/loginuser">Login</a></li>
+                                                    <li><a href="/registeruser">Register</a></li>
+                                                    <li><a href="/logoutuser">Logout</a></li>
+                                                </ul>
+                                            </li>
+                                        @endauth
+                                    </ul>
+                                    @guest
+                                        <li><a href="/loginuser">Login <i class="ti-angle"></i></a>
+                                        <a href="/registeruser">Register</a> <i class="ti-angle"></i></li>
                                     @endguest
-                                    <li><a href="/loginregister"></a></li>
-                                </ul>
+                                </nav>
                             </div>
+                            <hr>
                             <div class="book_btn d-none d-lg-block">
                                 <a class="popup-with-form" href="#test-form">Book A Room</a>
                             </div>
+
                         </div>
                     </div>
+
                     <div class="col-12">
                         <div class="mobile_menu d-block d-lg-none"></div>
                     </div>
