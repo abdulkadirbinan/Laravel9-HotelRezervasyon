@@ -48,6 +48,7 @@
                                                     <li><a href="/loginuser">Login</a></li>
                                                     <li><a href="/registeruser">Register</a></li>
                                                     <li><a href="/logoutuser">Logout</a></li>
+                                                    <li><a href="/userpanel">User Panel</a></li>
                                                 </ul>
                                             </li>
                                         @endauth
