@@ -26,9 +26,9 @@
                 <div class="card col-lg-4 mx-auto">
                     <div class="card-body px-5 py-5">
                         <h3 class="card-title text-left mb-3">Login</h3>
-                        <form action="{{ route('admin_logincheck')}}" method="POST">
+                        @include('home.messages')
+                        <form action="{{route('loginadmincheck')}}" method="POST">
                             @csrf
-
                             <div class="form-group">
                                 <label>Username or email *</label>
                                 <input type="email" name="name" class="form-control" placeholder="Email" required>
@@ -45,7 +45,7 @@
                                 <a href="#" class="forgot-pass">Forgot password</a>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
+                                <button <a href="/admin" type="submit" class="btn btn-primary btn-block enter-btn">Login </a></button>
                             </div>
                             <div class="d-flex">
                                 <button class="btn btn-facebook me-2 col">

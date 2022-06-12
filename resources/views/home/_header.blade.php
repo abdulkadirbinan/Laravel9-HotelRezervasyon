@@ -50,11 +50,13 @@
                                             <i class="fa fa-twitter"></i>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
+                                    @guest()
+                                    @auth()
+                                        <li><a href="/loginuser">{{Auth::user()->name}}</a></li>
+                                        <a href="/logoutuser">Logout</a>
+                                    @endauth
+                                    @endguest
+                                    <li><a href="/loginregister"></a></li>
                                 </ul>
                             </div>
                             <div class="book_btn d-none d-lg-block">

@@ -104,7 +104,17 @@
                         </div>
                     </div>
                     <div class="comments-area">
-                        <h4>Comments</h4>
+                        @php
+                            $average = $data->comment->average('rate')
+                        @endphp
+
+                        <h4>({{$data->comment->count('id')}}) Comments
+                            @if ($average==1)⭐ @endif
+                            @if ($average==2)⭐⭐ @endif
+                            @if ($average==3)⭐⭐⭐@endif
+                            @if ($average==4)⭐⭐⭐⭐@endif
+                            @if ($average==5)⭐⭐⭐⭐⭐@endif
+                        </h4>
                         @foreach($reviews as $rs)
                         <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">
